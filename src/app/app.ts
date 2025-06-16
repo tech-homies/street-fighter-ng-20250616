@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {CharactersPage} from './pages/characters-page/characters-page';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CharactersPage],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected title = 'street-fighter-ng';
 }
