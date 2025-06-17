@@ -1,7 +1,5 @@
-import { Component, computed, inject, OnInit, signal, effect, untracked } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { CharactersService } from '../../shared/services/characters-service';
-import { JsonPipe } from '@angular/common';
-import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { CharacterCard } from './character-card/character-card';
 import { Character } from '../../shared/services/character';

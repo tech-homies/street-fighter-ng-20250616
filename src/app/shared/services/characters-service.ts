@@ -57,4 +57,8 @@ export class CharactersService {
       }),
     );
   }
+
+  public getPictureUrl(character: CharacterDto): string {
+    return `${this.#apiUrl}/assets/characters/${character.id}_thumbnail.png`;
+  }
 }

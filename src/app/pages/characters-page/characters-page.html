@@ -1,9 +1,7 @@
-<ul>
+<div class="characters">
   @for (character of characters(); track character.id) {
-    <li>
-      <app-character-card [character]="character"></app-character-card>
-    </li>
+    <app-character-card [character]="character"></app-character-card>
   }
-</ul>
+</div>
 
 <mat-icon (click)="updatePrice()">sports_mma</mat-icon>

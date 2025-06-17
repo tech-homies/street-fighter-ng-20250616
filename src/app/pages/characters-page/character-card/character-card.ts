@@ -1,14 +1,46 @@
-import { Component, input, output } from '@angular/core';
-import { Character } from '../../../shared/services/character';
-import { JsonPipe } from '@angular/common';
+import { Component, computed, inject, input, output } from '@angular/core';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardAvatar,
+  MatCardContent,
+  MatCardHeader,
+  MatCardImage,
+  MatCardSubtitle,
+  MatCardTitle,
+} from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
+import { RouterLinkWithHref } from '@angular/router';
+import { CharactersService } from '../../../shared/services/characters-service';
+import { MatMiniFabButton } from '@angular/material/button';
+import { CharacterDto } from '../../../shared/services/character-dto';
 
 @Component({
   selector: 'app-character-card',
-  imports: [JsonPipe],
   templateUrl: './character-card.html',
-  styleUrl: './character-card.scss',
+  styleUrls: ['./character-card.scss'],
+  standalone: true,
+  imports: [
+    MatIcon,
+    MatCard,
+    RouterLinkWithHref,
+    MatMiniFabButton,
+    MatCardImage,
+    MatCardHeader,
+    MatCardContent,
+    MatCardActions,
+    MatCardAvatar,
+    MatCardTitle,
+    MatCardSubtitle,
+  ],
 })
 export class CharacterCard {
-  readonly character = input.required<Character>();
-  readonly staminaReduced = output<number>();
+  readonly #charactersService = inject(CharactersService);
+  readonly character = input.required<CharacterDto>();
+
+  protected pictureUrl = computed(() => this.#charactersService.getPictureUrl(this.character()));
+
+  public addToArena(): void {
+    // TODO
+  }
 }
