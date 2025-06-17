@@ -19,3 +19,25 @@
 .spacer {
   flex: 1 1 auto;
 }
+
+.active {
+  background-color: orangered !important;
+  display: flex !important;
+}
+
+.hidden {
+  display: none;
+}
+
+img.vs {
+  height: 24px;
+}
+
+.arena-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.arena-icon {
+  color: orangered;
+}

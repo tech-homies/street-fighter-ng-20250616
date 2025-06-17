@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Arena } from './arena';
+import { ArenaStore } from './arena-store.service';
 
 describe('Arena', () => {
-  let service: Arena;
+  let service: ArenaStore;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Arena);
+    service = TestBed.inject(ArenaStore);
   });
 
   it('should be created', () => {

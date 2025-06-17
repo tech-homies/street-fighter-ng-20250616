@@ -9,7 +9,7 @@ describe('Nav', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [Nav],
-      imports: [MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule],
+      imports: [],
     });
   }));
 

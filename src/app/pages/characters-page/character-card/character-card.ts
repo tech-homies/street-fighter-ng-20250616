@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, output } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import {
   MatCard,
   MatCardActions,
@@ -14,6 +14,7 @@ import { RouterLinkWithHref } from '@angular/router';
 import { CharactersService } from '../../../shared/services/characters-service';
 import { MatMiniFabButton } from '@angular/material/button';
 import { CharacterDto } from '../../../shared/services/character-dto';
+import { ArenaStore } from '../../../shared/stores/arena-store.service';
 
 @Component({
   selector: 'app-character-card',
@@ -36,11 +37,13 @@ import { CharacterDto } from '../../../shared/services/character-dto';
 })
 export class CharacterCard {
   readonly #charactersService = inject(CharactersService);
+  readonly #arenaStore = inject(ArenaStore);
   readonly character = input.required<CharacterDto>();
 
   protected pictureUrl = computed(() => this.#charactersService.getPictureUrl(this.character()));
+  protected isInArena = computed(() => this.#arenaStore.isInArena(this.character()));
 
-  public addToArena(): void {
-    // TODO
+  public toggleToArena(): void {
+    this.#arenaStore.toggleToArena(this.character());
   }
 }

@@ -10,7 +10,7 @@
     <div>Stun: {{ character().stun }}</div>
   </mat-card-content>
   <mat-card-actions class="card-actions">
-    <button mat-mini-fab color="warn" (click)="addToArena()">
+    <button mat-mini-fab [class.is-in-arena]="isInArena()" (click)="toggleToArena()">
       <mat-icon>sports_mma</mat-icon>
     </button>
     <a [routerLink]="['/character', character().id]" mat-mini-fab color="primary">
