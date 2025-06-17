@@ -1,7 +1,9 @@
-<p>characters-page works!</p>
-
 <ul>
-  @for (character of characters$ | async; track character.id) {
-    <li>{{ character.name }}</li>
+  @for (character of characters(); track character.id) {
+    <li>
+      <app-character-card [character]="character"></app-character-card>
+    </li>
   }
 </ul>
+
+<mat-icon (click)="updatePrice()">sports_mma</mat-icon>
