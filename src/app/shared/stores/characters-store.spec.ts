@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ArenaStore } from './arena-store';
+import { CharactersStore } from './characters-store';
 
-describe('Arena', () => {
-  let service: ArenaStore;
+describe('CharactersStore', () => {
+  let service: CharactersStore;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ArenaStore);
+    service = TestBed.inject(CharactersStore);
   });
 
   it('should be created', () => {

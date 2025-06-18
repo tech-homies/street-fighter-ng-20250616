@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Add Character</h2>
+<form [formGroup]="addCharacterForm" (submit)="saveCharacter()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+    @let name = addCharacterForm.controls.name;
+    @if (name.invalid && (name.dirty || name.touched)) {
+      @if (name.hasError('required')) {
+        <mat-error>Name is <strong>required</strong></mat-error>
+      } @else if (name.hasError('minlength')) {
+        <mat-error>Name must be at least 3 characters long</mat-error>
+      }
+    }
+    <mat-form-field>
+      <mat-label>Stamina</mat-label>
+      <input matInput type="number" formControlName="stamina" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Stun</mat-label>
+      <input matInput type="number" formControlName="stun" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <input matInput type="text" formControlName="country" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Order</mat-label>
+      <input matInput type="number" formControlName="order" />
+    </mat-form-field>
+
+    <div>Value: {{ addCharacterForm.value | json }}</div>
+    <div>Valid: {{ addCharacterForm.valid | json }}</div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <!-- mat-dialog-close -->
+    <button matButton type="submit" [disabled]="addCharacterForm.invalid">Ok</button>
+  </mat-dialog-actions>
+</form>

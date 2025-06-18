@@ -14,6 +14,8 @@ import { MatButton } from '@angular/material/button';
 })
 export default class CharacterPage {
   readonly charactersService = inject(CharactersService);
-  protected characterId = routerParam.required<string>();
+  protected readonly characterId = routerParam.required<string>();
+
+  // En attendant que les "ressource()" ne soient plus en "experimental" (Angular 21 ?)
   public character = toSignal(toObservable(this.characterId).pipe(switchMap((id) => this.charactersService.get(id))));
 }

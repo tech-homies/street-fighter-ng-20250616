@@ -1,5 +1,5 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { ArenaStore } from '../../shared/stores/arena-store.service';
+import { ArenaStore } from '../../shared/stores/arena-store';
 import { inject } from '@angular/core';
 
 export const hasTwoCharactersGuard: CanActivateFn = () => {

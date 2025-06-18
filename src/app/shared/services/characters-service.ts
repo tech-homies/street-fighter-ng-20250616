@@ -4,6 +4,7 @@ import { CharacterDto } from './character-dto';
 import { catchError, concatAll, filter, forkJoin, map, Observable, throwError, toArray } from 'rxjs';
 import { CountriesService } from './countries-service';
 import { Character } from './character';
+import { CreateCharacterDto } from './create-character-dto';
 
 @Injectable({ providedIn: 'root' })
 export class CharactersService {
@@ -13,6 +14,10 @@ export class CharactersService {
 
   public getAll(): Observable<CharacterDto[]> {
     return this.#http.get<CharacterDto[]>(`${this.#apiUrl}/characters`);
+  }
+
+  public create(character: CreateCharacterDto): Observable<CharacterDto> {
+    return this.#http.post<CharacterDto>(`${this.#apiUrl}/characters`, character);
   }
 
   public getAllWithDoubleStun(): Observable<CharacterDto[]> {

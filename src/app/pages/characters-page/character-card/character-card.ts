@@ -14,7 +14,7 @@ import { RouterLinkWithHref } from '@angular/router';
 import { CharactersService } from '../../../shared/services/characters-service';
 import { MatMiniFabButton } from '@angular/material/button';
 import { CharacterDto } from '../../../shared/services/character-dto';
-import { ArenaStore } from '../../../shared/stores/arena-store.service';
+import { ArenaStore } from '../../../shared/stores/arena-store';
 
 @Component({
   selector: 'app-character-card',
