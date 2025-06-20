@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { CharactersService } from '../../shared/services/characters-service';
 import { CharacterDto } from '../../shared/services/character-dto';
 
@@ -7,6 +7,7 @@ import { CharacterDto } from '../../shared/services/character-dto';
   imports: [],
   templateUrl: './characters-country-page.html',
   styleUrl: './characters-country-page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CharactersCountryPage implements OnInit {
   readonly #charactersService = inject(CharactersService);

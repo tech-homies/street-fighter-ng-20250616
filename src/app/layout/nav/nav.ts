@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { MatToolbar } from '@angular/material/toolbar';
@@ -34,6 +34,7 @@ import { CharactersStore } from '../../shared/stores/characters-store';
     RouterLink,
     RouterLinkActive,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Nav {
   readonly #breakpointObserver = inject(BreakpointObserver);
@@ -42,7 +43,7 @@ export class Nav {
   readonly #dialog = inject(MatDialog);
   readonly #charactersService = inject(CharactersService);
 
-  protected arena = this.#arenaStore.arena;
+  protected arena = this.#arenaStore.arenaCharacters;
 
   isHandset$: Observable<boolean> = this.#breakpointObserver.observe(Breakpoints.Handset).pipe(
     map((result) => result.matches),

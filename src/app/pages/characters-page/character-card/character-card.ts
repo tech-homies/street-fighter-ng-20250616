@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from '@angular/core';
+ import { Component, ChangeDetectionStrategy, computed, inject, input } from '@angular/core';
 import {
   MatCard,
   MatCardActions,
@@ -7,7 +7,7 @@ import {
   MatCardHeader,
   MatCardImage,
   MatCardSubtitle,
-  MatCardTitle,
+  MatCardTitle, 
 } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLinkWithHref } from '@angular/router';
@@ -34,6 +34,7 @@ import { ArenaStore } from '../../../shared/stores/arena-store';
     MatCardTitle,
     MatCardSubtitle,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharacterCard {
   readonly #charactersService = inject(CharactersService);

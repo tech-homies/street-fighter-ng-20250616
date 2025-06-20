@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogActions, MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { MatError, MatFormField, MatInput, MatLabel } from '@angular/material/input';
@@ -22,6 +22,7 @@ import { JsonPipe } from '@angular/common';
   ],
   templateUrl: './add-character-dialog.html',
   styleUrl: './add-character-dialog.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddCharacterDialog {
   readonly dialogRef = inject(MatDialogRef<AddCharacterDialog>);

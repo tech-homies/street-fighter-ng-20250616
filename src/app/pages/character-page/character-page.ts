@@ -1,4 +1,4 @@
-import { Component, inject, input as routerParam } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input as routerParam } from '@angular/core';
 import { CharactersService } from '../../shared/services/characters-service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { JsonPipe } from '@angular/common';
@@ -11,6 +11,7 @@ import { MatButton } from '@angular/material/button';
   imports: [JsonPipe, RouterLink, MatButton],
   templateUrl: './character-page.html',
   styleUrl: './character-page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CharacterPage {
   readonly charactersService = inject(CharactersService);

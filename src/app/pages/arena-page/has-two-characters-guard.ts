@@ -6,7 +6,7 @@ export const hasTwoCharactersGuard: CanActivateFn = () => {
   const arenaStore = inject(ArenaStore);
   const router = inject(Router);
 
-  if (arenaStore.arena().length < 2) {
+  if (arenaStore.arenaCharacters().length < 2) {
     alert('You need to select at least two characters for the arena.');
     return router.createUrlTree(['/characters']);
   }

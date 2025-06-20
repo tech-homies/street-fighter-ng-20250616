@@ -3,22 +3,22 @@ import { CharacterDto } from '../services/character-dto';
 
 @Injectable({ providedIn: 'root' })
 export class ArenaStore {
-  #arena = signal<CharacterDto[]>([]);
-  arena = this.#arena.asReadonly();
+  #arenaCharacters = signal<CharacterDto[]>([]);
+  arenaCharacters = this.#arenaCharacters.asReadonly();
 
   toggleToArena(character: CharacterDto): void {
-    const isInArena = this.#arena().some((c) => c.id === character.id);
+    const isInArena = this.#arenaCharacters().some((c) => c.id === character.id);
     if (isInArena) {
-      this.#arena.update((actualArena) => actualArena.filter((c) => c.id !== character.id));
+      this.#arenaCharacters.update((actualArena) => actualArena.filter((c) => c.id !== character.id));
       return;
     }
-    if (this.#arena().length >= 2) {
+    if (this.#arenaCharacters().length >= 2) {
       return;
     }
-    this.#arena.update((actualArena) => actualArena.concat(character));
+    this.#arenaCharacters.update((actualArena) => actualArena.concat(character));
   }
 
   isInArena(character: CharacterDto) {
-    return this.#arena().some((c) => c.id === character.id);
+    return this.#arenaCharacters().some((c) => c.id === character.id);
   }
 }
