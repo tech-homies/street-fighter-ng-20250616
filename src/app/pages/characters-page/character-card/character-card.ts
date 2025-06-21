@@ -1,4 +1,4 @@
- import { Component, ChangeDetectionStrategy, computed, inject, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, inject, input } from '@angular/core';
 import {
   MatCard,
   MatCardActions,
@@ -7,7 +7,7 @@ import {
   MatCardHeader,
   MatCardImage,
   MatCardSubtitle,
-  MatCardTitle, 
+  MatCardTitle,
 } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLinkWithHref } from '@angular/router';

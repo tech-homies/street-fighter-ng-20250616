@@ -5,10 +5,11 @@ import { catchError, concatAll, filter, forkJoin, map, Observable, throwError, t
 import { CountriesService } from './countries-service';
 import { Character } from './character';
 import { CreateCharacterDto } from './create-character-dto';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class CharactersService {
-  #apiUrl = 'http://localhost:3000';
+  #apiUrl = environment.apiUrl;
   readonly #http = inject(HttpClient);
   readonly #countriesService = inject(CountriesService);
 
